@@ -47,6 +47,7 @@ public class Login_residentFragment extends Fragment {
         btn_resend = root.findViewById(R.id.btn_resend);
         txt_Counter = root.findViewById(R.id.txt_Counter);
 
+
         sendJSONObjectRequest1();
 
         count();
@@ -83,11 +84,12 @@ public class Login_residentFragment extends Fragment {
         btn_resend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                sendJSONObjectRequest2();
-                counter = 30;
-
-
+                if (counter == 0) {
+                    sendJSONObjectRequest2();
+                    counter = 30;
+                } else {
+                    Toast.makeText(getContext(), "هنوز زمان دارید", Toast.LENGTH_LONG).show();
+                }
             }
         });
 
@@ -108,6 +110,7 @@ public class Login_residentFragment extends Fragment {
 
             public void onFinish() {
                 counter = 30;
+
             }
         }.start();
     }
