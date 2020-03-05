@@ -34,7 +34,7 @@ public class Resident_informationFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.fragment_resident_information, container, false);
-
+        HomeActivity.toolbar.setTitle("ورود ساکنین");
         TextView txt_number_phone = root.findViewById(R.id.txt_number_phone);
         final EditText edt_name_Residents = root.findViewById(R.id.edt_name_Residents);
         final EditText edt_family_Residents = root.findViewById(R.id.edt_family_Residents);
@@ -105,6 +105,12 @@ public class Resident_informationFragment extends Fragment {
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, url, registerAccount, listener, errorListener);
         queue.add(request);
 
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        HomeActivity.toolbar.setTitle("ورود ساکنین");
     }
 
 }

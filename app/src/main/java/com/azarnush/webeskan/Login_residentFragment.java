@@ -1,6 +1,7 @@
 package com.azarnush.webeskan;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -34,6 +35,7 @@ public class Login_residentFragment extends Fragment {
     String codRegister;
     Context context;
     public static String isRegister;
+    SharedPreferences shPref;
     String url_Foundation = "http://api.webeskan.com/api/v1/users/";
 
     @Override
@@ -41,11 +43,13 @@ public class Login_residentFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         root = inflater.inflate(R.layout.fragment_login_resident, container, false);
+        HomeActivity.toolbar.setTitle("ورود ساکنین");
         context = getContext();
         pinGroup = root.findViewById(R.id.pinGroup);
         btn_login_with_number = root.findViewById(R.id.login);
         btn_resend = root.findViewById(R.id.btn_resend);
         txt_Counter = root.findViewById(R.id.txt_Counter);
+        shPref = getActivity().getSharedPreferences("my pref", Context.MODE_PRIVATE);
 
 
         sendJSONObjectRequest1();
@@ -58,12 +62,18 @@ public class Login_residentFragment extends Fragment {
 
 
                 String user_cod = (String) pinGroup.getText();
+
                 if (codRegister.equalsIgnoreCase(user_cod)) {
                     if (counter != 0) {
                         if (isRegister == "true") {
-                            Fragment fragment = new HomeFragment();
+                            HomeActivity.fragmentManager.popBackStack();
+                            Fragment fragment = new Resident_panelFragment();
                             HomeActivity.fragmentManager.beginTransaction().replace(R.id.nav_host_fragment, fragment)
                                     .addToBackStack(null).commit();
+
+                            SharedPreferences.Editor sEdit = shPref.edit();
+                            sEdit.putBoolean("is register", true);
+                            sEdit.apply();
 
                         } else {
                             Fragment fragment = new Resident_informationFragment();
@@ -187,5 +197,10 @@ public class Login_residentFragment extends Fragment {
 
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        HomeActivity.toolbar.setTitle("ورود ساکنین");
+    }
 
 }
