@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:clickable="true"
+    xmlns:livebutton="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/frist_page">
+
+    <ru.katso.livebutton.LiveButton
+        android:id="@+id/btn_Residents_login"
+        style="@style/Button_style_text"
+        android:layout_width="120dp"
+        android:layout_height="60dp"
+        android:layout_alignParentLeft="true"
+
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="270dp"
+        android:layout_marginLeft="50dp"
+        android:clickable="true"
+        android:text="ورود ساکنین"
+        livebutton:backgroundColor="#2D9385"
+        livebutton:corners="50dp"
+        livebutton:normalHeight="6dp"
+        livebutton:pressedHeight="2dp"
+        livebutton:shadowColor="#18443E" />
+
+    <ru.katso.livebutton.LiveButton
+        android:id="@+id/btn_managers_login"
+        style="@style/Button_style_text"
+        android:layout_width="120dp"
+        android:layout_height="60dp"
+        android:layout_alignParentRight="true"
+
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="270dp"
+        android:layout_marginRight="50dp"
+        android:clickable="true"
+        android:text="ورود مدیران"
+        livebutton:backgroundColor="#2D9385"
+        livebutton:corners="50dp"
+        livebutton:normalHeight="6dp"
+        livebutton:pressedHeight="2dp"
+        livebutton:shadowColor="#18443E" />
+
+
+    <ru.katso.livebutton.LiveButton
+        android:id="@+id/btn_laws"
+        style="@style/Button_style_text"
+        android:layout_width="120dp"
+        android:layout_height="60dp"
+        android:layout_centerHorizontal="true"
+
+        android:layout_marginTop="340dp"
+        android:clickable="true"
+        android:text="قوانین و مقررات"
+        livebutton:backgroundColor="#2D9385"
+        livebutton:corners="50dp"
+        livebutton:normalHeight="6dp"
+        livebutton:pressedHeight="2dp"
+        livebutton:shadowColor="#18443E" />
+
+    <ru.katso.livebutton.LiveButton
+        android:id="@+id/btn_weblog"
+        style="@style/Button_style_text"
+        android:layout_width="120dp"
+        android:layout_height="60dp"
+        android:layout_below="@+id/btn_laws"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:clickable="true"
+        android:text="وبلاگ"
+        livebutton:backgroundColor="#2D9385"
+        livebutton:corners="50dp"
+        livebutton:normalHeight="6dp"
+        livebutton:pressedHeight="2dp"
+        livebutton:shadowColor="#18443E" />
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="180dp"
+        android:layout_height="130dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:foregroundGravity="top"
+        livebutton:srcCompat="@mipmap/logo20" />
+
+    <TextView
+        android:id="@+id/textView17"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imageView7"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:text="راهی آسان برای حسابداری و مدیریت ساختمان شما"
+        android:textColor="#FCF0F0"
+        android:textSize="16sp" />
+
+</RelativeLayout>

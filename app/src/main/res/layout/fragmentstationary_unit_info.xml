@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:clickable="true"
+    xmlns:livebutton="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rlt_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Stationary_unit_infoFragment">
+
+    <TextView
+        android:id="@+id/textView18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="50dp"
+        android:layout_marginRight="50dp"
+        android:text="واحدهای شما :"
+        android:textColor="#090808"
+        android:textSize="20sp" />
+
+    <ru.katso.livebutton.LiveButton
+        android:id="@+id/btn_LawOfPossession"
+        style="@style/Button_style_text"
+        android:layout_width="120dp"
+        android:layout_height="60dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="30dp"
+        android:clickable="true"
+        android:text="واحد جدید"
+        livebutton:backgroundColor="#2D9385"
+        livebutton:corners="50dp"
+        livebutton:normalHeight="6dp"
+        livebutton:pressedHeight="2dp"
+        livebutton:shadowColor="#18443E" />
+
+    <LinearLayout
+        android:id="@+id/line1"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:layout_marginTop="125dp"
+        android:background="@color/cardview_dark_background"
+        android:orientation="horizontal" />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_units"
+        android:layout_width="match_parent"
+        android:layout_height="600dp"
+        android:layout_below="@+id/line1"
+        android:background="#fff"
+        android:padding="20dp" />
+</RelativeLayout>

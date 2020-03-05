@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:clickable="true"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".Resident_informationFragment"
+    android:background="@drawable/back4">
+
+    <TextView
+
+        android:id="@+id/txt_number_phone"
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:padding="15dp"
+        android:textColorHint="#B5554A4A"
+        android:background="#fff"
+        android:gravity="left" />
+
+    <com.ornach.richtext.RichEditText
+
+        android:id="@+id/edt_name_Residents"
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="120dp"
+        android:hint="نام"
+        android:inputType="textPersonName"
+        android:padding="15dp"
+        android:textColorHint="#B5554A4A"
+        app:rt_backgroundColor="#fff"
+        app:rt_borderColor="#DF7F8585"
+        app:rt_borderWidth="2dp"
+        app:rt_radius="10dp" />
+
+    <com.ornach.richtext.RichEditText
+
+        android:id="@+id/edt_family_Residents"
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="190dp"
+        android:hint="نام خانوادگی"
+        android:inputType="textPersonName"
+        android:padding="15dp"
+        android:textColorHint="#B5554A4A"
+        app:rt_backgroundColor="#fff"
+        app:rt_borderColor="#DF7F8585"
+        app:rt_borderWidth="2dp"
+        app:rt_radius="10dp" />
+
+    <com.ornach.richtext.RichEditText
+
+        android:id="@+id/edt_Password"
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="260dp"
+        android:hint="کلمه عبور"
+        android:inputType="textPassword"
+        android:padding="15dp"
+        android:textColorHint="#B5554A4A"
+        app:rt_backgroundColor="#fff"
+        app:rt_borderColor="#DF7F8585"
+        app:rt_borderWidth="2dp"
+        app:rt_radius="10dp" />
+
+    <com.ornach.richtext.RichEditText
+
+        android:id="@+id/edt_Repeat_Password"
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="330dp"
+        android:hint="تکرار کلمه عبور"
+        android:inputType="textPassword"
+        android:padding="15dp"
+        android:textColorHint="#B5554A4A"
+        app:rt_backgroundColor="#fff"
+        app:rt_borderColor="#DF7F8585"
+        app:rt_borderWidth="2dp"
+        app:rt_radius="10dp" />
+
+    <com.ornach.richtext.RichEditText
+
+        android:id="@+id/edt_imail"
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="400dp"
+        android:hint="ایمیل"
+        android:inputType="textWebEmailAddress"
+        android:padding="15dp"
+        android:textColorHint="#B5554A4A"
+        app:rt_backgroundColor="#fff"
+        app:rt_borderColor="#DF7F8585"
+        app:rt_borderWidth="2dp"
+        app:rt_radius="10dp" />
+
+    <ru.katso.livebutton.LiveButton
+        android:id="@+id/btn_registration"
+        android:layout_width="120dp"
+        android:layout_height="60dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="500dp"
+        android:text="ثبت نام"
+        style="@style/Button_style_text"
+        app:backgroundColor="#2D9385"
+        app:corners="50dp"
+        app:normalHeight="6dp"
+        app:pressedHeight="2dp"
+        app:shadowColor="#18443E" />
+
+</RelativeLayout>

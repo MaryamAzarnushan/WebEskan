@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">"  وب اسکان"</string>
+    <string name="title_activity_home">صفحه اصلی</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">سامانه مدیریت مالی و حسابداری ساختمان</string>
+    <string name="nav_header_subtitle">شرکت ptm alborz</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">صفحه اصلی</string>
+    <string name="menu_gallery">قوانین و مقررات</string>
+    <string name="menu_slideshow">پرسش های متداول</string>
+    <string name="menu_tools">درباره ما</string>
+    <string name="menu_share">دعوت از دوستان</string>
+
+    <string name="aboat_us">این سامانه توسط کارگروه تخصصی متشکل ازفعالان حوزه فناوری و اطلاعات ، مالی و حقوقی طراحی شده است و مدیران مجتمع و شهرک های مسکونی ، اداری و تجاری با استفاده از سامانه "وب اسکان" قادر خواهند بود بدون نیاز به تخصص مالی و همچنین هزینه های مازاد برای اداره امور اجرایی مجتمع ، با سهولت و دقت ، مجموعه مربوطه خود را مدیریت نمایند و بدون دغدغه با استفاده از قابلیتها و روشهای متنوع موجود هزینه های شارژ را برای مالکین و ساکنین تقسیم و یا نکات لازم را به اطلاع آنها رسانده و موجبات افزایش حس اعتماد و مشارکت در مجموعه را فراهم آورند .</string>
+    <string name="contact_title">کارشناسان ما آماده پاسخ گویی به سوالات، و شنیدن پیشنهادات شما هستند.</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_law_of__possession">Law_of_PossessionActivity</string>
+    <string name="menu_send">Send</string>
+</resources>

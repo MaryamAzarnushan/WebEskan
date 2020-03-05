@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:clickable="true"
+    xmlns:livebutton="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".Resident_informationFragment"
+    android:background="@drawable/back4">
+
+    <TextView
+        android:id="@+id/textView17"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:text="ورود به عنوان ساکنین"
+        android:textColor="#FCF0F0"
+        android:textSize="26sp" />
+
+
+    <ru.katso.livebutton.LiveButton
+        android:id="@+id/btn_login"
+        style="@style/Button_style_text"
+        android:layout_width="110dp"
+        android:layout_height="60dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="425dp"
+        android:layout_marginEnd="69dp"
+        android:layout_marginRight="69dp"
+        android:clickable="true"
+        android:text="ورود"
+        livebutton:backgroundColor="#2D9385"
+        livebutton:corners="50dp"
+        livebutton:normalHeight="6dp"
+        livebutton:pressedHeight="2dp"
+        livebutton:shadowColor="#18443E" />
+
+    <ru.katso.livebutton.LiveButton
+        android:id="@+id/btn_register"
+        style="@style/Button_style_text"
+        android:layout_width="110dp"
+        android:layout_height="60dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="426dp"
+        android:layout_marginEnd="225dp"
+        android:layout_marginRight="225dp"
+        android:clickable="true"
+        android:text="ثبت نام"
+        livebutton:backgroundColor="#2D9385"
+        livebutton:corners="50dp"
+        livebutton:normalHeight="6dp"
+        livebutton:pressedHeight="2dp"
+        livebutton:shadowColor="#18443E" />
+
+    <com.ornach.richtext.RichEditText
+
+        android:id="@+id/username"
+        android:layout_width="240dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/textView17"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="85dp"
+        android:layout_marginLeft="85dp"
+        android:layout_marginTop="123dp"
+        android:layout_marginEnd="85dp"
+        android:layout_marginRight="85dp"
+        android:ems="10"
+        android:hint="نام کاربری"
+        android:inputType="text"
+        android:padding="15dp"
+        android:textColorHint="#B5554A4A"
+        app:rt_backgroundColor="#fff"
+        app:rt_borderColor="#DF7F8585"
+        app:rt_borderWidth="2dp"
+        app:rt_radius="10dp" />
+
+    <com.ornach.richtext.RichEditText
+
+        android:id="@+id/password"
+        android:layout_width="240dp"
+        android:layout_height="50dp"
+        android:layout_alignTop="@+id/username"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="85dp"
+        android:layout_marginLeft="85dp"
+        android:layout_marginTop="74dp"
+        android:layout_marginEnd="85dp"
+        android:layout_marginRight="85dp"
+        android:ems="10"
+        android:hint="رمز عبور"
+        android:inputType="textPassword"
+        android:padding="15dp"
+        android:textColorHint="#B5554A4A"
+        app:rt_backgroundColor="#ffffff"
+        app:rt_borderColor="#DF7F8585"
+        app:rt_borderWidth="2dp"
+        app:rt_radius="10dp" />
+
+    <TextView
+        android:id="@+id/forgot_pass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/password"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+
+        android:layout_marginTop="24dp"
+        android:gravity="center"
+        android:text="رمز عبور را فراموش کردید؟"
+        android:textColor="#0074e0" />
+
+
+</RelativeLayout>

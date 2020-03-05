@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.azarnush.webeskan">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application
+        android:name="com.azarnush.webeskan.App.AppController"
+        android:allowBackup="true"
+        android:icon="@drawable/logo"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
+        <!--        <activity android:name=".WebLogFragment" />-->
+        <!--        <activity android:name=".Rules_webeskanFragment" />-->
+        <!--        <activity android:name=".VotesFragment" />-->
+        <!--        <activity android:name=".Question_and_answerFragment" />-->
+        <!--        <activity android:name=".RegulationsFragment" />-->
+        <!--        <activity android:name=".LawContent1Fragment" />-->
+        <!--        <activity-->
+        <!--            android:name=".Law_of_PossessionFragment"-->
+        <!--            android:theme="@style/AppTheme.NoActionBar" />-->
+        <activity
+            android:name="com.azarnush.webeskan.SplashActivity"
+            android:noHistory="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <!--        <activity-->
+        <!--            android:name=".LawInfoFragment"-->
+        <!--            android:label="لیست مطالب "-->
+        <!--            android:screenOrientation="portrait" />-->
+        <activity
+            android:name="com.azarnush.webeskan.HomeActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <!--        <activity-->
+        <!--            android:name=".User_registrationActivity"-->
+        <!--            android:screenOrientation="portrait" />-->
+        <!--        <activity-->
+        <!--            android:name=".MainActivity"-->
+        <!--            android:noHistory="true"-->
+        <!--            android:screenOrientation="portrait" />-->
+        <!--        <activity-->
+        <!--            android:name=".Logonـtypeـselection"-->
+        <!--            android:noHistory="true"-->
+        <!--            android:screenOrientation="portrait" />-->
+        <!--        <activity-->
+        <!--            android:name=".Get_number_managerActivity"-->
+        <!--            android:noHistory="true"-->
+        <!--            android:screenOrientation="portrait" />-->
+        <!--        <activity-->
+        <!--            android:name=".Login_manager"-->
+        <!--            android:noHistory="true"-->
+        <!--            android:screenOrientation="portrait" />-->
+    </application>
+
+</manifest>

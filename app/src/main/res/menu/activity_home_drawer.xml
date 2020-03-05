@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_home_black_24dp"
+            android:title="صفحه اصلی" />
+
+        <item
+            android:id="@+id/nav_all_laws"
+            android:icon="@drawable/law"
+            android:title="قوانین و مقررات">
+
+        </item>
+
+
+        <item
+            android:id="@+id/nav_weblog"
+            android:icon="@drawable/ic_weblog"
+            android:title="وبلاگ" />
+
+
+        <item
+            android:id="@+id/nav_slideshow"
+            android:icon="@drawable/ic_help_black_24dp"
+            android:title="@string/menu_slideshow" />
+        <item
+            android:id="@+id/nav_about_us"
+            android:icon="@drawable/ic_perm_device_information_black_24dp"
+            android:title="درباره ما" />
+        <item
+            android:id="@+id/nav_contactUs"
+            android:icon="@drawable/ic_phone"
+            android:title="تماس با ما" />
+    </group>
+
+    <item android:title="برقرای ارتباط">
+        <menu>
+            <item
+                android:id="@+id/nav_share"
+                android:icon="@drawable/ic_menu_share"
+                android:title="@string/menu_share" />
+            <item
+                android:id="@+id/nav_exit"
+                android:icon="@drawable/ic_exit_to_app_black_24dp"
+                android:title="خروج" />
+        </menu>
+    </item>
+
+</menu>

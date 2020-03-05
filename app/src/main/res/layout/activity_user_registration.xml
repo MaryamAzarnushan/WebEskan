@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:clickable="true"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".User_registrationActivity"
+    android:background="@drawable/back1">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="350dp"
+        android:layout_height="500dp"
+        android:layout_centerInParent="true"
+        android:background="@color/cardview_light_background"
+        app:cardCornerRadius="30dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="120dp"
+                android:text="ثبت نام در وب اسکان"
+                android:textColor="@android:color/background_dark"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <com.ornach.richtext.RichEditText
+
+                android:id="@+id/edt_name"
+                android:layout_width="240dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="180dp"
+                android:ems="10"
+                android:hint="نام"
+                android:inputType="textPersonName"
+                android:padding="15dp"
+                android:textColorHint="#B5000000"
+                app:rt_borderColor="#DF7F8585"
+                app:rt_borderWidth="2dp"
+                app:rt_radius="10dp" />
+
+            <com.ornach.richtext.RichEditText
+
+                android:id="@+id/edt_family"
+                android:layout_width="240dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="240dp"
+                android:ems="10"
+                android:hint="نام خانوادگی"
+                android:inputType="textPersonName"
+                android:padding="15dp"
+                android:textColorHint="#B5000000"
+                app:rt_borderColor="#DF7F8585"
+                app:rt_borderWidth="2dp"
+                app:rt_radius="10dp" />
+
+            <com.ornach.richtext.RichEditText
+
+                android:id="@+id/edt_number"
+                android:layout_width="240dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="300dp"
+                android:ems="10"
+                android:hint="موبایل"
+                android:inputType="phone"
+                android:padding="15dp"
+                android:textColorHint="#B5000000"
+                app:rt_borderColor="#DF7F8585"
+                app:rt_borderWidth="2dp"
+                app:rt_radius="10dp" />
+
+            <ru.katso.livebutton.LiveButton
+                android:id="@+id/btn_registration"
+                android:layout_width="200dp"
+                android:layout_height="60dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="380dp"
+                android:text="ثبت نام"
+                style="@style/Button_style_text"
+                app:backgroundColor="#2D9385"
+                app:corners="10dp"
+                app:normalHeight="6dp"
+                app:pressedHeight="2dp"
+                app:shadowColor="#18443E" />
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="wrap_content"
+                android:layout_height="110dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                app:srcCompat="@drawable/logo" />
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignBottom="@id/edt_name"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="20dp"
+                app:srcCompat="@drawable/ic_person_outline_black_24dp"
+                tools:ignore="VectorDrawableCompat" />
+
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignBottom="@id/edt_family"
+                android:layout_alignParentLeft="false"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="20dp"
+                app:srcCompat="@drawable/ic_group_black_24dp"
+                tools:ignore="VectorDrawableCompat" />
+
+            <ImageView
+                android:id="@+id/imageView5"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignBottom="@id/edt_number"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="20dp"
+                app:srcCompat="@drawable/ic_call_black_24dp"
+                tools:ignore="VectorDrawableCompat" />
+
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+</RelativeLayout>

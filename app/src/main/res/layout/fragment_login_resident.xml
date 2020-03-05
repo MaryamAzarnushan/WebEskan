@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".Login_residentFragment"
+    android:background="@drawable/back1"
+    android:clickable="true">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="300dp"
+        android:layout_height="370dp"
+        android:layout_centerInParent="true"
+        android:background="@color/cardview_light_background"
+        app:cardCornerRadius="30dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:isScrollContainer="true">
+
+            <TextView
+                android:id="@+id/txt_Counter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/login"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="30dp"
+                android:text="Counter"
+                android:textColor="#0E0D0D"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="40dp"
+                android:gravity="center"
+                android:text="کد ارسال شده را وارد نمایید:"
+                android:textColor="#0E0D0D"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+
+            <ru.katso.livebutton.LiveButton
+                android:id="@+id/login"
+                style="@style/Button_style_text"
+                android:layout_width="110dp"
+                android:layout_height="60dp"
+                android:layout_below="@+id/pinGroup"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="30dp"
+                android:layout_marginRight="30dp"
+                android:text="تایید"
+                app:backgroundColor="#2D9385"
+                app:corners="50dp"
+                app:normalHeight="6dp"
+                app:pressedHeight="2dp"
+                app:shadowColor="#18443E" />
+
+            <ru.katso.livebutton.LiveButton
+                android:id="@+id/btn_resend"
+                style="@style/Button_style_text"
+                android:layout_width="110dp"
+                android:layout_height="60dp"
+                android:layout_below="@+id/pinGroup"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="30dp"
+                android:text="ارسال مجدد"
+                app:backgroundColor="#2D9385"
+                app:corners="50dp"
+                app:normalHeight="6dp"
+                app:pressedHeight="2dp"
+                app:shadowColor="#18443E" />
+
+
+            <com.hendraanggrian.appcompat.widget.PinGroup
+                android:id="@+id/pinGroup"
+                android:layout_width="200dp"
+                android:layout_height="60dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="100dp"
+                android:layoutDirection="ltr"
+                app:pinCount="4">
+
+            </com.hendraanggrian.appcompat.widget.PinGroup>
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txt_Counter"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:text="ثانیه تا ارسال مجدد کد"
+                android:textColor="@android:color/background_dark" />
+
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+</RelativeLayout>
