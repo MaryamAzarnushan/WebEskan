@@ -23,12 +23,13 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.azarnush.webeskan.Account_register.RegisterAccount;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 public class Resident_informationFragment extends Fragment {
-    public RegisterAccount registerAccount;
-    SharedPreferences shPref;
 
+    SharedPreferences shPref;
+    JSONObject jsonObject;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -49,12 +50,12 @@ public class Resident_informationFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 try {
-                    registerAccount = new RegisterAccount();
-                    registerAccount.put("firstName", edt_name_Residents.getText().toString());
-                    registerAccount.put("lastName", edt_family_Residents.getText().toString());
-                    registerAccount.put("password", edt_Password.getText().toString());
-                    registerAccount.put("confirmPassword", edt_Repeat_Password.getText().toString());
-                    registerAccount.put("email", edt_imail.getText().toString());
+                    jsonObject = new JSONObject();
+                    jsonObject.put("firstName", edt_name_Residents.getText().toString());
+                    jsonObject.put("lastName", edt_family_Residents.getText().toString());
+                    jsonObject.put("password", edt_Password.getText().toString());
+                    jsonObject.put("confirmPassword", edt_Repeat_Password.getText().toString());
+                    jsonObject.put("email", edt_imail.getText().toString());
                     sendJsonObjectRequest_user_register();
 
                     SharedPreferences.Editor sEdit = shPref.edit();
@@ -64,9 +65,9 @@ public class Resident_informationFragment extends Fragment {
                     sEdit.putString("confirmPassword", edt_Repeat_Password.getText().toString());
                     sEdit.putString("email", edt_imail.getText().toString());
                     sEdit.apply();
-                    Toast.makeText(getContext(), "شما ثبت نام شدید", Toast.LENGTH_LONG).show();
+                    // Toast.makeText(getContext(), "شما ثبت نام شدید", Toast.LENGTH_LONG).show();
 
-                    Toast.makeText(getContext(), registerAccount.toString(), Toast.LENGTH_LONG).show();
+                    //  Toast.makeText(getContext(), registerAccount.toString(), Toast.LENGTH_LONG).show();
 
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -90,7 +91,11 @@ public class Resident_informationFragment extends Fragment {
             @Override
             public void onResponse(JSONObject response) {
 
-                Toast.makeText(getContext(), response.toString(), Toast.LENGTH_LONG).show();
+                try {
+                    Toast.makeText(getContext(), response.toString(), Toast.LENGTH_LONG).show();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
 
             }
         };
@@ -98,11 +103,12 @@ public class Resident_informationFragment extends Fragment {
         Response.ErrorListener errorListener = new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
+                Toast.makeText(getContext(), error.toString(), Toast.LENGTH_LONG).show();
 
             }
         };
 
-        JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, url, registerAccount, listener, errorListener);
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, url, jsonObject, listener, errorListener);
         queue.add(request);
 
     }
