@@ -36,7 +36,7 @@ public class Resident_informationFragment extends Fragment {
         // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.fragment_resident_information, container, false);
         HomeActivity.toolbar.setTitle("ورود ساکنین");
-        TextView txt_number_phone = root.findViewById(R.id.txt_number_phone);
+        final TextView txt_number_phone = root.findViewById(R.id.txt_number_phone);
         final EditText edt_name_Residents = root.findViewById(R.id.edt_name_Residents);
         final EditText edt_family_Residents = root.findViewById(R.id.edt_family_Residents);
         final EditText edt_Password = root.findViewById(R.id.edt_Password);
@@ -51,19 +51,21 @@ public class Resident_informationFragment extends Fragment {
             public void onClick(View view) {
                 try {
                     jsonObject = new JSONObject();
-                    jsonObject.put("firstName", edt_name_Residents.getText().toString());
-                    jsonObject.put("lastName", edt_family_Residents.getText().toString());
-                    jsonObject.put("password", edt_Password.getText().toString());
-                    jsonObject.put("confirmPassword", edt_Repeat_Password.getText().toString());
-                    jsonObject.put("email", edt_imail.getText().toString());
+                    jsonObject.put("Mobile", txt_number_phone.getText().toString());
+                    jsonObject.put("FirstName", edt_name_Residents.getText().toString());
+                    jsonObject.put("LastName", edt_family_Residents.getText().toString());
+                    jsonObject.put("Password", edt_Password.getText().toString());
+                    jsonObject.put("ConfirmPassword", edt_Repeat_Password.getText().toString());
+                    jsonObject.put("Email", edt_imail.getText().toString());
                     sendJsonObjectRequest_user_register();
 
                     SharedPreferences.Editor sEdit = shPref.edit();
-                    sEdit.putString("firstName", edt_name_Residents.getText().toString());
-                    sEdit.putString("lastName", edt_family_Residents.getText().toString());
-                    sEdit.putString("password", edt_Password.getText().toString());
-                    sEdit.putString("confirmPassword", edt_Repeat_Password.getText().toString());
-                    sEdit.putString("email", edt_imail.getText().toString());
+                    sEdit.putString("Mobile", txt_number_phone.getText().toString());
+                    sEdit.putString("FirstName", edt_name_Residents.getText().toString());
+                    sEdit.putString("LastName", edt_family_Residents.getText().toString());
+                    sEdit.putString("Password", edt_Password.getText().toString());
+                    sEdit.putString("ConfirmPassword", edt_Repeat_Password.getText().toString());
+                    sEdit.putString("Email", edt_imail.getText().toString());
                     sEdit.apply();
                     // Toast.makeText(getContext(), "شما ثبت نام شدید", Toast.LENGTH_LONG).show();
 
