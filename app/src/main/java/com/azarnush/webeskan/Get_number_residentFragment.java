@@ -51,8 +51,7 @@ public class Get_number_residentFragment extends Fragment {
 
                     Fragment fragment = new Login_residentFragment();
 
-                    HomeActivity.fragmentManager.beginTransaction().replace(R.id.nav_host_fragment, fragment)
-                            .addToBackStack(null).commit();
+                    HomeActivity.fragmentManager.beginTransaction().replace(R.id.nav_host_fragment, fragment).commit();
 
                 }
             }

@@ -85,6 +85,16 @@ public class Resident_informationFragment extends Fragment {
                 @Override
                 public void onResponse(Boolean response) {
                     Toast.makeText(getContext(), String.valueOf(response), Toast.LENGTH_SHORT).show();
+                    if (response == true) {
+                        HomeActivity.fragmentManager.popBackStack();
+                        Fragment fragment = new Resident_panelFragment();
+                        HomeActivity.fragmentManager.beginTransaction().replace(R.id.nav_host_fragment, fragment)
+                                .addToBackStack(null).commit();
+
+                        SharedPreferences.Editor sEdit = shPref.edit();
+                        sEdit.putBoolean("is register", true);
+                        sEdit.apply();
+                    }
                 }
             }, new Response.ErrorListener() {
                 @Override
