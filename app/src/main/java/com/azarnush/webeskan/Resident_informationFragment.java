@@ -1,12 +1,9 @@
 package com.azarnush.webeskan;
 
-
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-
 import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,22 +11,19 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-import com.azarnush.webeskan.Account_register.RegisterAccount;
-
-import org.json.JSONException;
+import com.azarnush.webeskan.Account_register.BooleanRequest;
 import org.json.JSONObject;
 
 public class Resident_informationFragment extends Fragment {
 
     SharedPreferences shPref;
     JSONObject jsonObject;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -57,7 +51,7 @@ public class Resident_informationFragment extends Fragment {
                     jsonObject.put("Password", edt_Password.getText().toString());
                     jsonObject.put("ConfirmPassword", edt_Repeat_Password.getText().toString());
                     jsonObject.put("Email", edt_imail.getText().toString());
-                    sendJsonObjectRequest_user_register();
+                    booleanRequest_user_register();
 
                     SharedPreferences.Editor sEdit = shPref.edit();
                     sEdit.putString("Mobile", txt_number_phone.getText().toString());
@@ -74,45 +68,35 @@ public class Resident_informationFragment extends Fragment {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-
-
             }
         });
 
         return root;
     }
 
-
-    private void sendJsonObjectRequest_user_register() {
+    private void booleanRequest_user_register() {
         RequestQueue queue = Volley.newRequestQueue(getContext());
 
         String url = "http://api.webeskan.com/api/v1/users/register";
 
-        Response.Listener<JSONObject> listener = new Response.Listener<JSONObject>() {
+        try {
 
-            @Override
-            public void onResponse(JSONObject response) {
-
-                try {
-                    Toast.makeText(getContext(), response.toString(), Toast.LENGTH_LONG).show();
-                } catch (Exception e) {
-                    e.printStackTrace();
+            BooleanRequest booleanRequest = new BooleanRequest(Request.Method.POST, url, jsonObject.toString(), new Response.Listener<Boolean>() {
+                @Override
+                public void onResponse(Boolean response) {
+                    Toast.makeText(getContext(), String.valueOf(response), Toast.LENGTH_SHORT).show();
                 }
-
-            }
-        };
-
-        Response.ErrorListener errorListener = new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Toast.makeText(getContext(), error.toString(), Toast.LENGTH_LONG).show();
-
-            }
-        };
-
-        JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, url, jsonObject, listener, errorListener);
-        queue.add(request);
-
+            }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    Toast.makeText(getContext(), error.toString(), Toast.LENGTH_SHORT).show();
+                }
+            });
+            // Add the request to the RequestQueue.
+            queue.add(booleanRequest);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
