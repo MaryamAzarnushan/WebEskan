@@ -125,8 +125,8 @@ public class HomeActivity extends AppCompatActivity {
                             dialog.cancel();
                         }
                     });
-            builder.setPositiveButtonIcon(getResources().getDrawable(R.drawable.icon_yes))
-                    .setNegativeButtonIcon(getResources().getDrawable(R.drawable.icon_no));
+            builder.setPositiveButtonIcon(getResources().getDrawable(R.drawable.ic_done))
+                    .setNegativeButtonIcon(getResources().getDrawable(R.drawable.ic_cancel));
 
             AlertDialog alert = builder.create();
             alert.show();
