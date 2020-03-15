@@ -13,15 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <!-- <activity android:name=".WebLogFragment" /> -->
-        <!-- <activity android:name=".Rules_webeskanFragment" /> -->
-        <!-- <activity android:name=".VotesFragment" /> -->
-        <!-- <activity android:name=".Question_and_answerFragment" /> -->
-        <!-- <activity android:name=".RegulationsFragment" /> -->
-        <!-- <activity android:name=".LawContent1Fragment" /> -->
-        <!-- <activity -->
-        <!-- android:name=".Law_of_PossessionFragment" -->
-        <!-- android:theme="@style/AppTheme.NoActionBar" /> -->
+
         <activity
             android:name=".SplashActivity"
             android:noHistory="true"
@@ -32,10 +24,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity> <!-- <activity -->
-        <!-- android:name=".LawInfoFragment" -->
-        <!-- android:label="لیست مطالب " -->
-        <!-- android:screenOrientation="portrait" /> -->
+        </activity>
         <activity
             android:name=".HomeActivity"
             android:screenOrientation="portrait"
