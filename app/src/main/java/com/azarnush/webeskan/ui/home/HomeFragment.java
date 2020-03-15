@@ -42,6 +42,10 @@ public class HomeFragment extends Fragment {
         btn_managers_login = root.findViewById(R.id.btn_managers_login);
         homePref = getActivity().getSharedPreferences("my pref", Context.MODE_PRIVATE);
 
+        if (homePref.getBoolean("is login", false)) {
+            HomeActivity.navigationView.getMenu().findItem(R.id.nav_exit_Account).setVisible(true);
+        }
+
         btn_laws.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

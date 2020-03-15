@@ -94,7 +94,7 @@ public class HomeActivity extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), "log out", Toast.LENGTH_SHORT).show();
                         fragment = new HomeFragment();
                         HomeFragment.homePref.edit().putBoolean("is login", false).apply();
-                        HomeActivity.navigationView.getMenu().findItem(R.id.nav_exit_Account).setVisible(false);
+                        navigationView.getMenu().findItem(R.id.nav_exit_Account).setVisible(false);
                         break;
 
 
