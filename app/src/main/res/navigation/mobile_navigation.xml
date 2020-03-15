@@ -54,6 +54,11 @@
         android:name="com.azarnush.webeskan.ExitFragment"
 
         tools:layout="@layout/fragment_exit" />
+    <fragment
+        android:id="@+id/nav_exit_Account"
+        android:name="com.azarnush.webeskan.ui.share.ShareFragment"
+
+        />
 
 
 </navigation>

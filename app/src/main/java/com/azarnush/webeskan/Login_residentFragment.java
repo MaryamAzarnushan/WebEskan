@@ -35,7 +35,7 @@ public class Login_residentFragment extends Fragment {
     String codRegister;
     Context context;
     public static String isRegister;
-    SharedPreferences shPref;
+    //  SharedPreferences shPref;
     String url_Foundation = "http://api.webeskan.com/api/v1/users/";
 
     @Override
@@ -49,7 +49,7 @@ public class Login_residentFragment extends Fragment {
         btn_login_with_number = root.findViewById(R.id.login);
         btn_resend = root.findViewById(R.id.btn_resend);
         txt_Counter = root.findViewById(R.id.txt_Counter);
-        shPref = getActivity().getSharedPreferences("my pref", Context.MODE_PRIVATE);
+        //  shPref = getActivity().getSharedPreferences("my pref", Context.MODE_PRIVATE);
 
 
         sendJSONObjectRequest1();
@@ -71,9 +71,14 @@ public class Login_residentFragment extends Fragment {
                             HomeActivity.fragmentManager.beginTransaction().replace(R.id.nav_host_fragment, fragment)
                                     .addToBackStack(null).commit();
 
-                            SharedPreferences.Editor sEdit = shPref.edit();
-                            sEdit.putBoolean("is register", true);
-                            sEdit.apply();
+//                            SharedPreferences.Editor sEdit = shPref.edit();
+//                            sEdit.putBoolean("is register", true);
+//                            sEdit.apply();
+
+                            SharedPreferences.Editor sEdit2 = HomeFragment.homePref.edit();
+                            sEdit2.putBoolean("is login", true);
+                            sEdit2.putBoolean("is register", true);
+                            sEdit2.apply();
 
                         } else {
                             Fragment fragment = new Resident_informationFragment();

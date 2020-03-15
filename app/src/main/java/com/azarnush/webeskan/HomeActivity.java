@@ -1,10 +1,12 @@
 package com.azarnush.webeskan;
 
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -34,8 +36,7 @@ public class HomeActivity extends AppCompatActivity {
     public static Toolbar toolbar;
     public static ImageView imageShare;
     View container;
-
-
+    public static NavigationView navigationView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,12 +50,12 @@ public class HomeActivity extends AppCompatActivity {
 
 
         drawer = findViewById(R.id.drawer_layout);
-        NavigationView navigationView = findViewById(R.id.nav_view);
+        navigationView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_home, R.id.nav_all_laws, R.id.nav_weblog, R.id.nav_slideshow,
-                R.id.nav_about_us, R.id.nav_contactUs, R.id.nav_share, R.id.nav_exit)
+                R.id.nav_about_us, R.id.nav_contactUs, R.id.nav_share, R.id.nav_exit, R.id.nav_exit_Account)
                 .setDrawerLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
@@ -88,6 +89,12 @@ public class HomeActivity extends AppCompatActivity {
                         break;
                     case R.id.nav_slideshow:
                         fragment = new Question_and_answerFragment();
+                        break;
+                    case R.id.nav_exit_Account:
+                        Toast.makeText(getApplicationContext(), "log out", Toast.LENGTH_SHORT).show();
+                        fragment = new HomeFragment();
+                        HomeFragment.homePref.edit().putBoolean("is login", false).apply();
+                        HomeActivity.navigationView.getMenu().findItem(R.id.nav_exit_Account).setVisible(false);
                         break;
 
 

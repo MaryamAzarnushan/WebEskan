@@ -17,6 +17,8 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.Volley;
 import com.azarnush.webeskan.Account_register.BooleanRequest;
+import com.azarnush.webeskan.ui.home.HomeFragment;
+
 import org.json.JSONObject;
 
 public class Resident_informationFragment extends Fragment {
@@ -61,6 +63,8 @@ public class Resident_informationFragment extends Fragment {
                     sEdit.putString("ConfirmPassword", edt_Repeat_Password.getText().toString());
                     sEdit.putString("Email", edt_imail.getText().toString());
                     sEdit.apply();
+
+
                     // Toast.makeText(getContext(), "شما ثبت نام شدید", Toast.LENGTH_LONG).show();
 
                     //  Toast.makeText(getContext(), registerAccount.toString(), Toast.LENGTH_LONG).show();
@@ -94,6 +98,11 @@ public class Resident_informationFragment extends Fragment {
                         SharedPreferences.Editor sEdit = shPref.edit();
                         sEdit.putBoolean("is register", true);
                         sEdit.apply();
+
+                        SharedPreferences.Editor sEdit2 = HomeFragment.homePref.edit();
+                        sEdit2.putBoolean("is login", true);
+
+                        sEdit2.apply();
                     }
                 }
             }, new Response.ErrorListener() {

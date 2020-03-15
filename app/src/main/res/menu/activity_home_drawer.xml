@@ -46,7 +46,12 @@
             <item
                 android:id="@+id/nav_exit"
                 android:icon="@drawable/ic_exit_to_app_black_24dp"
-                android:title="خروج" />
+                android:title="خروج از برنامه" />
+            <item
+                android:id="@+id/nav_exit_Account"
+                android:icon="@drawable/ic_account_box_black_24dp"
+                android:title="خروج از حساب کاربری"
+                android:visible="false" />
         </menu>
     </item>
 

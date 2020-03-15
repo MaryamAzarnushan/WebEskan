@@ -16,9 +16,7 @@ import com.azarnush.webeskan.All_lawsFragment;
 import com.azarnush.webeskan.Get_number_residentFragment;
 import com.azarnush.webeskan.HomeActivity;
 import com.azarnush.webeskan.R;
-import com.azarnush.webeskan.Resident_informationFragment;
 import com.azarnush.webeskan.Resident_panelFragment;
-import com.azarnush.webeskan.Saken_Login_Fragment;
 import com.azarnush.webeskan.WebLogFragment;
 
 public class HomeFragment extends Fragment {
@@ -29,7 +27,7 @@ public class HomeFragment extends Fragment {
     Button btn_laws, btn_weblog, btn_residents_login, btn_managers_login;
 
     Context context_home;
-    SharedPreferences shPref;
+    public static SharedPreferences homePref;
     public View onCreateView(LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         homeViewModel =
@@ -42,7 +40,7 @@ public class HomeFragment extends Fragment {
         btn_weblog = root.findViewById(R.id.btn_weblog);
         btn_residents_login = root.findViewById(R.id.btn_Residents_login);
         btn_managers_login = root.findViewById(R.id.btn_managers_login);
-        shPref = getActivity().getSharedPreferences("my pref", Context.MODE_PRIVATE);
+        homePref = getActivity().getSharedPreferences("my pref", Context.MODE_PRIVATE);
 
         btn_laws.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,12 +63,15 @@ public class HomeFragment extends Fragment {
         btn_residents_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (shPref.getBoolean("is register", false)) {
-                    Toast.makeText(getContext(), shPref.getBoolean("is register", false) + "", Toast.LENGTH_LONG).show();
+                if (homePref.getBoolean("is register", false) && homePref.getBoolean("is login", false)) {
+                    Toast.makeText(getContext(), homePref.getBoolean("is register", false) + "", Toast.LENGTH_LONG).show();
+
+
 
                     Fragment fragment = new Resident_panelFragment();
                     HomeActivity.fragmentManager.beginTransaction().replace(R.id.nav_host_fragment, fragment)
                             .addToBackStack(null).commit();
+
 
                 } else {
                     Fragment fragment = new Get_number_residentFragment();
