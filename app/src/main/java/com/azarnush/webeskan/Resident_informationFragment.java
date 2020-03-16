@@ -23,6 +23,9 @@ import com.google.android.material.snackbar.Snackbar;
 
 import org.json.JSONObject;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class Resident_informationFragment extends Fragment {
 
     SharedPreferences shPref;
@@ -58,23 +61,30 @@ public class Resident_informationFragment extends Fragment {
 
                     if (!firstName.equals("") & !lastName.equals("") & !password.equals("") & !confirmPassword.equals("") & !email.equals("")) {
                         if (password.equalsIgnoreCase(confirmPassword)) {
-                            jsonObject = new JSONObject();
-                            jsonObject.put("Mobile", mobile);
-                            jsonObject.put("FirstName", firstName);
-                            jsonObject.put("LastName", lastName);
-                            jsonObject.put("Password", password);
-                            jsonObject.put("ConfirmPassword", confirmPassword);
-                            jsonObject.put("Email", email);
-                            booleanRequest_user_register();
+                            if (password.length() >= 8) {
+                                if (isValidPassword(password)) {
+                                    jsonObject = new JSONObject();
+                                    jsonObject.put("Mobile", mobile);
+                                    jsonObject.put("FirstName", firstName);
+                                    jsonObject.put("LastName", lastName);
+                                    jsonObject.put("Password", password);
+                                    jsonObject.put("ConfirmPassword", confirmPassword);
+                                    jsonObject.put("Email", email);
+                                    booleanRequest_user_register();
 
-                            SharedPreferences.Editor sEdit = shPref.edit();
-                            sEdit.putString("Mobile", mobile);
-                            sEdit.putString("FirstName", firstName);
-                            sEdit.putString("LastName", lastName);
-                            sEdit.putString("Password", password);
-                            sEdit.putString("ConfirmPassword", confirmPassword);
-                            sEdit.putString("Email", email);
-                            sEdit.apply();
+                                    SharedPreferences.Editor sEdit = shPref.edit();
+                                    sEdit.putString("Mobile", mobile);
+                                    sEdit.putString("FirstName", firstName);
+                                    sEdit.putString("LastName", lastName);
+                                    sEdit.putString("Password", password);
+                                    sEdit.putString("ConfirmPassword", confirmPassword);
+                                    sEdit.putString("Email", email);
+                                    sEdit.apply();
+                                } else
+                                    Snackbar.make(btn_registration, "رمز ترکیبی از حروف انگلیسی کوچک و بزرگ و اعداد میباشد", Snackbar.LENGTH_LONG).show();
+
+                            } else
+                                Snackbar.make(btn_registration, "حداقل کاراکتر رمز 8 میباشد", Snackbar.LENGTH_LONG).show();
                         } else
                             Snackbar.make(btn_registration, "تکرار پسورد اشتباه میباشد", Snackbar.LENGTH_LONG).show();
 
@@ -92,6 +102,19 @@ public class Resident_informationFragment extends Fragment {
         });
 
         return root;
+    }
+
+    public static boolean isValidPassword(final String password) {
+
+        Pattern pattern;
+        Matcher matcher;
+        // final String PASSWORD_PATTERN = "^(?=.*[0-9])(?=.*[A-Z])(?=.*[@#$%^&+=!])(?=\\S+$).{4,}$";
+        final String PASSWORD_PATTERN = "^(?=.*[0-9])(?=.*[A-z])(?=\\S+$).{8,}$";
+        pattern = Pattern.compile(PASSWORD_PATTERN);
+        matcher = pattern.matcher(password);
+
+        return matcher.matches();
+
     }
 
     private void booleanRequest_user_register() {
