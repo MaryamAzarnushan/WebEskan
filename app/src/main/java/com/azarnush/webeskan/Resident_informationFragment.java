@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.android.volley.Request;
@@ -18,6 +19,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.Volley;
 import com.azarnush.webeskan.Account_register.BooleanRequest;
 import com.azarnush.webeskan.ui.home.HomeFragment;
+import com.google.android.material.snackbar.Snackbar;
 
 import org.json.JSONObject;
 
@@ -38,35 +40,49 @@ public class Resident_informationFragment extends Fragment {
         final EditText edt_Password = root.findViewById(R.id.edt_Password);
         final EditText edt_Repeat_Password = root.findViewById(R.id.edt_Repeat_Password);
         final EditText edt_imail = root.findViewById(R.id.edt_imail);
-        Button btn_registration = root.findViewById(R.id.btn_registration);
+        final Button btn_registration = root.findViewById(R.id.btn_registration);
         txt_number_phone.setText(Get_number_residentFragment.mobile_number);
         shPref = getActivity().getSharedPreferences("MyPref", Context.MODE_PRIVATE);
+
 
         btn_registration.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 try {
-                    jsonObject = new JSONObject();
-                    jsonObject.put("Mobile", txt_number_phone.getText().toString());
-                    jsonObject.put("FirstName", edt_name_Residents.getText().toString());
-                    jsonObject.put("LastName", edt_family_Residents.getText().toString());
-                    jsonObject.put("Password", edt_Password.getText().toString());
-                    jsonObject.put("ConfirmPassword", edt_Repeat_Password.getText().toString());
-                    jsonObject.put("Email", edt_imail.getText().toString());
-                    booleanRequest_user_register();
+                    String mobile = txt_number_phone.getText().toString();
+                    String firstName = edt_name_Residents.getText().toString();
+                    String lastName = edt_family_Residents.getText().toString();
+                    String password = edt_Password.getText().toString();
+                    String confirmPassword = edt_Repeat_Password.getText().toString();
+                    String email = edt_imail.getText().toString();
 
-                    SharedPreferences.Editor sEdit = shPref.edit();
-                    sEdit.putString("Mobile", txt_number_phone.getText().toString());
-                    sEdit.putString("FirstName", edt_name_Residents.getText().toString());
-                    sEdit.putString("LastName", edt_family_Residents.getText().toString());
-                    sEdit.putString("Password", edt_Password.getText().toString());
-                    sEdit.putString("ConfirmPassword", edt_Repeat_Password.getText().toString());
-                    sEdit.putString("Email", edt_imail.getText().toString());
-                    sEdit.apply();
+                    if (!firstName.equals("") & !lastName.equals("") & !password.equals("") & !confirmPassword.equals("") & !email.equals("")) {
+                        if (password.equalsIgnoreCase(confirmPassword)) {
+                            jsonObject = new JSONObject();
+                            jsonObject.put("Mobile", mobile);
+                            jsonObject.put("FirstName", firstName);
+                            jsonObject.put("LastName", lastName);
+                            jsonObject.put("Password", password);
+                            jsonObject.put("ConfirmPassword", confirmPassword);
+                            jsonObject.put("Email", email);
+                            booleanRequest_user_register();
 
+                            SharedPreferences.Editor sEdit = shPref.edit();
+                            sEdit.putString("Mobile", mobile);
+                            sEdit.putString("FirstName", firstName);
+                            sEdit.putString("LastName", lastName);
+                            sEdit.putString("Password", password);
+                            sEdit.putString("ConfirmPassword", confirmPassword);
+                            sEdit.putString("Email", email);
+                            sEdit.apply();
+                        } else
+                            Snackbar.make(btn_registration, "تکرار پسورد اشتباه میباشد", Snackbar.LENGTH_LONG).show();
+
+                    } else {
+                        Snackbar.make(btn_registration, "لطفا تمام گزینه هارو تکمیل فرمایید", Snackbar.LENGTH_LONG).show();
+                    }
 
                     // Toast.makeText(getContext(), "شما ثبت نام شدید", Toast.LENGTH_LONG).show();
-
                     //  Toast.makeText(getContext(), registerAccount.toString(), Toast.LENGTH_LONG).show();
 
                 } catch (Exception e) {
@@ -101,14 +117,13 @@ public class Resident_informationFragment extends Fragment {
 
                         SharedPreferences.Editor sEdit2 = HomeFragment.homePref.edit();
                         sEdit2.putBoolean("is login", true);
-
                         sEdit2.apply();
                     }
                 }
             }, new Response.ErrorListener() {
                 @Override
                 public void onErrorResponse(VolleyError error) {
-                    Toast.makeText(getContext(), error.toString(), Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getContext(), error.toString(), Toast.LENGTH_SHORT).show();
                 }
             });
             // Add the request to the RequestQueue.
