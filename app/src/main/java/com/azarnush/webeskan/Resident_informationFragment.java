@@ -55,6 +55,7 @@ public class Resident_informationFragment extends Fragment implements TextWatche
         final Button btn_registration = root.findViewById(R.id.btn_registration);
 
         edt_Password.addTextChangedListener(this);
+        edt_Repeat_Password.addTextChangedListener(this);
         txt_number_phone.setText(Get_number_residentFragment.mobile_number);
         shPref = getActivity().getSharedPreferences("MyPref", Context.MODE_PRIVATE);
 
@@ -69,6 +70,10 @@ public class Resident_informationFragment extends Fragment implements TextWatche
                     String password = edt_Password.getText().toString();
                     String confirmPassword = edt_Repeat_Password.getText().toString();
                     String email = edt_imail.getText().toString();
+
+                    if (!password.equals(confirmPassword) && !confirmPassword.equals("") && !password.equals("")) {
+                        edt_Repeat_Password.setError("تکرار کلمه عبور اشتباه میباشد");
+                    }
 
                     if (firstName.equals("")) {
                         edt_name_Residents.setHint("لطفا نام را وارد نمایید");
@@ -89,34 +94,29 @@ public class Resident_informationFragment extends Fragment implements TextWatche
                         edt_Repeat_Password.setHintTextColor(Color.parseColor("#D81B60"));
                     }
 
+                    if (!firstName.equals("") && !lastName.equals("") && !password.equals("") && !confirmPassword.equals("")) {
+                        if (isValidPassword(password)) {
+                            if (password.equals(confirmPassword)) {
+                                jsonObject = new JSONObject();
+                                jsonObject.put("Mobile", mobile);
+                                jsonObject.put("FirstName", firstName);
+                                jsonObject.put("LastName", lastName);
+                                jsonObject.put("Password", password);
+                                jsonObject.put("ConfirmPassword", confirmPassword);
+                                jsonObject.put("Email", email);
+                                booleanRequest_user_register();
 
-                        if (password.equalsIgnoreCase(confirmPassword)) {
-
-                                if (isValidPassword(password)) {
-                                    jsonObject = new JSONObject();
-                                    jsonObject.put("Mobile", mobile);
-                                    jsonObject.put("FirstName", firstName);
-                                    jsonObject.put("LastName", lastName);
-                                    jsonObject.put("Password", password);
-                                    jsonObject.put("ConfirmPassword", confirmPassword);
-                                    jsonObject.put("Email", email);
-                                    booleanRequest_user_register();
-
-                                    SharedPreferences.Editor sEdit = shPref.edit();
-                                    sEdit.putString("Mobile", mobile);
-                                    sEdit.putString("FirstName", firstName);
-                                    sEdit.putString("LastName", lastName);
-                                    sEdit.putString("Password", password);
-                                    sEdit.putString("ConfirmPassword", confirmPassword);
-                                    sEdit.putString("Email", email);
-                                    sEdit.apply();
-                                } else
-                                    Snackbar.make(btn_registration, "رمز ترکیبی از 8 حروف انگلیسی کوچک و بزرگ و اعداد میباشد", Snackbar.LENGTH_LONG).show();
-
-
-                        } else
-                            Snackbar.make(btn_registration, "تکرار پسورد اشتباه میباشد", Snackbar.LENGTH_LONG).show();
-
+                                SharedPreferences.Editor sEdit = shPref.edit();
+                                sEdit.putString("Mobile", mobile);
+                                sEdit.putString("FirstName", firstName);
+                                sEdit.putString("LastName", lastName);
+                                sEdit.putString("Password", password);
+                                sEdit.putString("ConfirmPassword", confirmPassword);
+                                sEdit.putString("Email", email);
+                                sEdit.apply();
+                            }
+                        }
+                    }
                     // Toast.makeText(getContext(), "شما ثبت نام شدید", Toast.LENGTH_LONG).show();
                     //  Toast.makeText(getContext(), registerAccount.toString(), Toast.LENGTH_LONG).show();
 
@@ -134,7 +134,7 @@ public class Resident_informationFragment extends Fragment implements TextWatche
         Pattern pattern;
         Matcher matcher;
         // final String PASSWORD_PATTERN = "^(?=.*[0-9])(?=.*[A-Z])(?=.*[@#$%^&+=!])(?=\\S+$).{4,}$";
-        final String PASSWORD_PATTERN = "^(?=.*[0-9])(?=.*[A-z])(?=\\S+$).{8,}$";
+        final String PASSWORD_PATTERN = "^(?=.*[0-9])(?=.*[A-z])(?=\\S+$).{6,}$";
         pattern = Pattern.compile(PASSWORD_PATTERN);
         matcher = pattern.matcher(password);
 
@@ -206,15 +206,18 @@ public class Resident_informationFragment extends Fragment implements TextWatche
         } else {
 
             edt_Password.setTextColor(Color.parseColor("#D81B60"));
-            Toast.makeText(getContext(), "رمز ترکیبی از 8 حروف انگلیسی کوچک و بزرگ و اعداد میباشد", Toast.LENGTH_LONG).show();
+            edt_Password.setError("رمز ترکیبی از حداقل 6 حروف انگلیسی بزرگ و کوچک و اعداد میباشد");
+
+            //Toast.makeText(getContext(), "رمز ترکیبی از 8 حروف انگلیسی کوچک و بزرگ و اعداد میباشد", Toast.LENGTH_LONG).show();
         }
 
 
         String confirmPassword = edt_Repeat_Password.getText().toString();
-        if (password.equalsIgnoreCase(confirmPassword)) {
+        if (confirmPassword.equals(password)) {
             edt_Repeat_Password.setTextColor(Color.parseColor("#00574B"));
         } else
             edt_Repeat_Password.setTextColor(Color.parseColor("#D81B60"));
+        // edt_Repeat_Password.setError("تکرار کلمه عبور اشتباه میباشد");
 
     }
 }

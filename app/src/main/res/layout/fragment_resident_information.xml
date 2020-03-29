@@ -19,9 +19,11 @@
         android:background="#fff"
         android:gravity="left"
         android:padding="15dp"
+        android:shadowRadius="0.60"
+        android:textColor="#B5554A4A"
         android:textColorHint="#FA131313"
         android:textSize="16sp"
-        android:textStyle="bold" />
+        android:textStyle="normal" />
 
     <com.ornach.richtext.RichEditText
 
@@ -34,6 +36,7 @@
         android:inputType="textPersonName"
         android:padding="15dp"
         android:textColorHint="#B5554A4A"
+        android:textSize="16sp"
         app:rt_backgroundColor="#fff"
         app:rt_borderColor="#DF7F8585"
         app:rt_borderWidth="2dp"
@@ -50,6 +53,7 @@
         android:inputType="textPersonName"
         android:padding="15dp"
         android:textColorHint="#B5554A4A"
+        android:textSize="16sp"
         app:rt_backgroundColor="#fff"
         app:rt_borderColor="#DF7F8585"
         app:rt_borderWidth="2dp"
@@ -66,6 +70,7 @@
         android:inputType="textPassword"
         android:padding="15dp"
         android:textColorHint="#B5554A4A"
+        android:textSize="16sp"
         app:rt_backgroundColor="#fff"
         app:rt_borderColor="#DF7F8585"
         app:rt_borderWidth="2dp"
@@ -82,6 +87,7 @@
         android:inputType="textPassword"
         android:padding="15dp"
         android:textColorHint="#B5554A4A"
+        android:textSize="16sp"
         app:rt_backgroundColor="#fff"
         app:rt_borderColor="#DF7F8585"
         app:rt_borderWidth="2dp"
@@ -98,6 +104,7 @@
         android:inputType="textWebEmailAddress"
         android:padding="15dp"
         android:textColorHint="#B5554A4A"
+        android:textSize="16sp"
         app:rt_backgroundColor="#fff"
         app:rt_borderColor="#DF7F8585"
         app:rt_borderWidth="2dp"
