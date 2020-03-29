@@ -2,14 +2,19 @@ package com.azarnush.webeskan;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
+
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.android.volley.Request;
@@ -26,10 +31,14 @@ import org.json.JSONObject;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class Resident_informationFragment extends Fragment {
+public class Resident_informationFragment extends Fragment implements TextWatcher {
 
     SharedPreferences shPref;
     JSONObject jsonObject;
+    EditText edt_name_Residents;
+    EditText edt_family_Residents;
+    EditText edt_Password;
+    EditText edt_Repeat_Password;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -38,12 +47,14 @@ public class Resident_informationFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_resident_information, container, false);
         HomeActivity.toolbar.setTitle("ورود ساکنین");
         final TextView txt_number_phone = root.findViewById(R.id.txt_number_phone);
-        final EditText edt_name_Residents = root.findViewById(R.id.edt_name_Residents);
-        final EditText edt_family_Residents = root.findViewById(R.id.edt_family_Residents);
-        final EditText edt_Password = root.findViewById(R.id.edt_Password);
-        final EditText edt_Repeat_Password = root.findViewById(R.id.edt_Repeat_Password);
+        edt_name_Residents = root.findViewById(R.id.edt_name_Residents);
+        edt_family_Residents = root.findViewById(R.id.edt_family_Residents);
+        edt_Password = root.findViewById(R.id.edt_Password);
+        edt_Repeat_Password = root.findViewById(R.id.edt_Repeat_Password);
         final EditText edt_imail = root.findViewById(R.id.edt_imail);
         final Button btn_registration = root.findViewById(R.id.btn_registration);
+
+        edt_Password.addTextChangedListener(this);
         txt_number_phone.setText(Get_number_residentFragment.mobile_number);
         shPref = getActivity().getSharedPreferences("MyPref", Context.MODE_PRIVATE);
 
@@ -59,9 +70,28 @@ public class Resident_informationFragment extends Fragment {
                     String confirmPassword = edt_Repeat_Password.getText().toString();
                     String email = edt_imail.getText().toString();
 
-                    if (!firstName.equals("") & !lastName.equals("") & !password.equals("") & !confirmPassword.equals("") & !email.equals("")) {
+                    if (firstName.equals("")) {
+                        edt_name_Residents.setHint("لطفا نام را وارد نمایید");
+                        edt_name_Residents.setHintTextColor(Color.parseColor("#D81B60"));
+
+                    }
+                    if (lastName.equals("")) {
+                        edt_family_Residents.setHint("لطفا نام خانوادگی را وارد نمایید");
+                        edt_family_Residents.setHintTextColor(Color.parseColor("#D81B60"));
+                    }
+                    if (password.equals("")) {
+
+                        edt_Password.setHint("لطفا کلمه عبور را وارد نمایید");
+                        edt_Password.setHintTextColor(Color.parseColor("#D81B60"));
+                    }
+                    if (confirmPassword.equals("")) {
+                        edt_Repeat_Password.setHint("لطفا تکرار کلمه عبور را وارد نمایید");
+                        edt_Repeat_Password.setHintTextColor(Color.parseColor("#D81B60"));
+                    }
+
+
                         if (password.equalsIgnoreCase(confirmPassword)) {
-                            if (password.length() >= 8) {
+
                                 if (isValidPassword(password)) {
                                     jsonObject = new JSONObject();
                                     jsonObject.put("Mobile", mobile);
@@ -81,16 +111,11 @@ public class Resident_informationFragment extends Fragment {
                                     sEdit.putString("Email", email);
                                     sEdit.apply();
                                 } else
-                                    Snackbar.make(btn_registration, "رمز ترکیبی از حروف انگلیسی کوچک و بزرگ و اعداد میباشد", Snackbar.LENGTH_LONG).show();
+                                    Snackbar.make(btn_registration, "رمز ترکیبی از 8 حروف انگلیسی کوچک و بزرگ و اعداد میباشد", Snackbar.LENGTH_LONG).show();
 
-                            } else
-                                Snackbar.make(btn_registration, "حداقل کاراکتر رمز 8 میباشد", Snackbar.LENGTH_LONG).show();
+
                         } else
                             Snackbar.make(btn_registration, "تکرار پسورد اشتباه میباشد", Snackbar.LENGTH_LONG).show();
-
-                    } else {
-                        Snackbar.make(btn_registration, "لطفا تمام گزینه هارو تکمیل فرمایید", Snackbar.LENGTH_LONG).show();
-                    }
 
                     // Toast.makeText(getContext(), "شما ثبت نام شدید", Toast.LENGTH_LONG).show();
                     //  Toast.makeText(getContext(), registerAccount.toString(), Toast.LENGTH_LONG).show();
@@ -162,4 +187,34 @@ public class Resident_informationFragment extends Fragment {
         HomeActivity.toolbar.setTitle("ورود ساکنین");
     }
 
+    @Override
+    public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+    }
+
+    @Override
+    public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+    }
+
+    @Override
+    public void afterTextChanged(Editable s) {
+
+        String password = edt_Password.getText().toString();
+        if (isValidPassword(password)) {
+            edt_Password.setTextColor(Color.parseColor("#00574B"));
+        } else {
+
+            edt_Password.setTextColor(Color.parseColor("#D81B60"));
+            Toast.makeText(getContext(), "رمز ترکیبی از 8 حروف انگلیسی کوچک و بزرگ و اعداد میباشد", Toast.LENGTH_LONG).show();
+        }
+
+
+        String confirmPassword = edt_Repeat_Password.getText().toString();
+        if (password.equalsIgnoreCase(confirmPassword)) {
+            edt_Repeat_Password.setTextColor(Color.parseColor("#00574B"));
+        } else
+            edt_Repeat_Password.setTextColor(Color.parseColor("#D81B60"));
+
+    }
 }
