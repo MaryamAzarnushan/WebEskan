@@ -65,31 +65,7 @@ public class LawContent1Fragment extends Fragment {
     public void onResume() {
         super.onResume();
         HomeActivity.imageShare.setVisibility(View.VISIBLE);
+        HomeActivity.toolbar.setTitle("قوانین و مقررات");
     }
-
-    //    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        MenuInflater inflater=getActivity().getMenuInflater();
-//
-//        inflater.inflate(R.menu.home, menu);
-//        return true;
-//
-//    }
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        switch(item.getItemId())
-//        {
-//            case R.id.action_share:
-//                Intent intent = new Intent(Intent.ACTION_SEND);
-//                intent.setType("text/plain");
-//                intent.putExtra(Intent.EXTRA_TEXT, "my_text");
-//                startActivity(Intent.createChooser(intent, "اشتراک گذاری متن با "));
-//
-//                break;
-//
-//        }
-//        return true;
-//    }
-
 
 }

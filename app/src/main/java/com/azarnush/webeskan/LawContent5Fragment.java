@@ -67,5 +67,6 @@ public class LawContent5Fragment extends Fragment {
     public void onResume() {
         super.onResume();
         HomeActivity.imageShare.setVisibility(View.VISIBLE);
+        HomeActivity.toolbar.setTitle("قوانین و مقررات");
     }
 }

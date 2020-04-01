@@ -134,6 +134,7 @@ public class RegulationsFragment extends Fragment {
 
                         lawinfos3.add(new LawInfo3(lawId, lawTitle3, lawSummery, lawContent3, lawSourceLink, lawTag3, shortKey, visibleStatusId, registerDate, lawGroupRefId));
 
+
                     }
                     adapter.notifyDataSetChanged();
                 } catch (Exception e) {

@@ -1,51 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:clickable="true"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:clickable="true"
     android:orientation="vertical">
-
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="@color/colorPrimary"
-        app:popupTheme="@style/AppTheme.PopupOverlay"
-        app:title="@string/app_name"
         android:layoutDirection="rtl"
-        android:layout_gravity="left">
+        app:popupTheme="@style/AppTheme.PopupOverlay"
+        app:title="@string/app_name">
 
         <ImageView
             android:id="@+id/img_share"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginStart="7dp"
-            android:layout_marginLeft="0dp"
-            android:layout_marginTop="7dp"
-            android:layout_marginEnd="7dp"
-            android:layout_marginRight="150dp"
-            android:layout_marginBottom="7dp"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_centerVertical="true"
             android:clickable="true"
             android:foregroundGravity="center"
-            android:layoutDirection="ltr"
             android:visibility="invisible"
             app:srcCompat="@drawable/share"
             tools:ignore="VectorDrawableCompat" />
 
-
         <LinearLayout
-            android:layout_width="130dp"
-            android:layout_height='?attr/actionBarSize'>
-
-
-        </LinearLayout>
-
+            android:layout_width="160dp"
+            android:layout_height="wrap_content" />
 
     </androidx.appcompat.widget.Toolbar>
-
 
     <fragment
         android:id="@+id/nav_host_fragment"
@@ -55,6 +41,5 @@
         android:paddingTop="15dp"
         app:defaultNavHost="true"
         app:navGraph="@navigation/mobile_navigation" />
-
 
 </LinearLayout>

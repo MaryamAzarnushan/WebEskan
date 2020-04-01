@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.azarnush.webeskan.models.LawInfo2;
 import com.azarnush.webeskan.models.LawInfo3;
 
 public class LawContent2Fragment extends Fragment {
@@ -36,7 +37,7 @@ public class LawContent2Fragment extends Fragment {
         txt_law_title = root.findViewById(R.id.txt_law_title);
         txt_law_taq = root.findViewById(R.id.txt_law_taq);
 
-        LawInfo3 lawInfo33 = RegulationsFragment.lawinfos3.get(0);
+        LawInfo2 lawInfo33 = Law_of_PossessionFragment.lawInfos2.get(1);
         txt_law_title.setText(lawInfo33.getLawTitle());
         txt_content.setText(Html.fromHtml(lawInfo33.getLawContent()));
         my_text = lawInfo33.getLawTitle() + " \n\n" + Html.fromHtml(lawInfo33.getLawContent());
@@ -69,6 +70,7 @@ public class LawContent2Fragment extends Fragment {
     public void onResume() {
         super.onResume();
         HomeActivity.imageShare.setVisibility(View.VISIBLE);
+        HomeActivity.toolbar.setTitle("قوانین و مقررات");
     }
 
 }
