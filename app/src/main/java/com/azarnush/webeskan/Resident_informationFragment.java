@@ -19,6 +19,7 @@ import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -78,27 +79,15 @@ public class Resident_informationFragment extends Fragment implements TextWatche
                     }
 
                     if (firstName.equals("")) {
-//                        edt_name_Residents.setHint("لطفا نام را وارد نمایید");
-//                        edt_name_Residents.setHintTextColor(Color.parseColor("#D81B60"));
                         edt_name_Residents.setError("لطفا نام را وارد نمایید");
-
-
                     }
                     if (lastName.equals("")) {
-//                        edt_family_Residents.setHint("لطفا نام خانوادگی را وارد نمایید");
-//                        edt_family_Residents.setHintTextColor(Color.parseColor("#D81B60"));
                         edt_family_Residents.setError("لطفا نام خانوادگی را وارد نمایید");
-
                     }
                     if (password.equals("")) {
-
-//                        edt_Password.setHint("لطفا کلمه عبور را وارد نمایید");
-//                        edt_Password.setHintTextColor(Color.parseColor("#D81B60"));
                         edt_Password.setError("لطفا کلمه عبور را وارد نمایید");
                     }
                     if (confirmPassword.equals("")) {
-//                        edt_Repeat_Password.setHint("لطفا تکرار کلمه عبور را وارد نمایید");
-//                        edt_Repeat_Password.setHintTextColor(Color.parseColor("#D81B60"));
                         edt_Repeat_Password.setError("لطفا تکرار کلمه عبور را وارد نمایید");
                     }
 
