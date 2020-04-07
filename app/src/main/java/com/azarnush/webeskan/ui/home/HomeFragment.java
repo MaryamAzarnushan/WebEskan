@@ -1,6 +1,7 @@
 package com.azarnush.webeskan.ui.home;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -16,6 +17,7 @@ import com.azarnush.webeskan.All_lawsFragment;
 import com.azarnush.webeskan.Get_number_residentFragment;
 import com.azarnush.webeskan.HomeActivity;
 import com.azarnush.webeskan.R;
+import com.azarnush.webeskan.Resident_panelActivity;
 import com.azarnush.webeskan.Resident_panelFragment;
 import com.azarnush.webeskan.WebLogFragment;
 
@@ -69,12 +71,12 @@ public class HomeFragment extends Fragment {
             public void onClick(View view) {
                 if (homePref.getBoolean("is register", false) && homePref.getBoolean("is login", false)) {
                     Toast.makeText(getContext(), homePref.getBoolean("is register", false) + "", Toast.LENGTH_LONG).show();
+                    startActivity(new Intent(getContext(), Resident_panelActivity.class));
 
 
-
-                    Fragment fragment = new Resident_panelFragment();
-                    HomeActivity.fragmentManager.beginTransaction().replace(R.id.nav_host_fragment, fragment)
-                            .addToBackStack(null).commit();
+//                    Fragment fragment = new Resident_panelFragment();
+//                    HomeActivity.fragmentManager.beginTransaction().replace(R.id.nav_host_fragment, fragment)
+//                            .addToBackStack(null).commit();
 
 
                 } else {

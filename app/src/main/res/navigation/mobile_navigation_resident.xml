@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation_resident"
+    app:startDestination="@+id/nav_home"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.azarnush.webeskan.Resident_panelFragment"
+        android:label="پنل ساکنین"
+        tools:layout="@layout/fragment_resident_panel" />
+
+    <fragment
+        android:id="@+id/nav_all_laws"
+        android:name="com.azarnush.webeskan.All_lawsFragment"
+        android:label="@string/menu_gallery"
+        tools:layout="@layout/fragment_all_laws" />
+    <fragment
+        android:id="@+id/nav_law_of_possession"
+        android:name="com.azarnush.webeskan.Law_of_PossessionFragment"
+        android:label="قانون تملک"
+        tools:layout="@layout/fragment_law_of__possession" />
+    <fragment
+        android:id="@+id/nav_weblog"
+        android:name="com.azarnush.webeskan.WebLogFragment"
+        android:label="وبلاگ"
+        tools:layout="@layout/fragment_web_log" />
+
+    <fragment
+        android:id="@+id/nav_slideshow"
+        android:name="com.azarnush.webeskan.ui.slideshow.SlideshowFragment"
+        android:label="@string/menu_slideshow"
+        tools:layout="@layout/fragment_slideshow" />
+
+    <fragment
+        android:id="@+id/nav_about_us"
+        android:name="com.azarnush.webeskan.ui.tools.AboutـusFragment"
+        android:label="@string/menu_tools"
+        tools:layout="@layout/fragment_about_us" />
+    <fragment
+        android:id="@+id/nav_contactUs"
+        android:name="com.azarnush.webeskan.ContactUsFragment"
+        android:label="تماس با ما"
+        tools:layout="@layout/fragment_about_us" />
+
+    <fragment
+        android:id="@+id/nav_share"
+        android:name="com.azarnush.webeskan.ui.share.ShareFragment"
+        android:label="@string/menu_share"
+        tools:layout="@layout/fragment_share" />
+    <fragment
+        android:id="@+id/nav_exit"
+        android:name="com.azarnush.webeskan.ExitFragment"
+
+        tools:layout="@layout/fragment_exit" />
+    <fragment
+        android:id="@+id/nav_exit_Account"
+        android:name="com.azarnush.webeskan.ui.share.ShareFragment"
+
+        />
+
+
+</navigation>

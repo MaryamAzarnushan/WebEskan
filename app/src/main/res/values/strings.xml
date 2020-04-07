@@ -20,4 +20,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_law_of__possession">Law_of_PossessionActivity</string>
     <string name="menu_send">Send</string>
+    <string name="title_activity_resident_panel">Resident_panelActivity</string>
+
+    <string name="home_second">Home Second</string>
 </resources>
