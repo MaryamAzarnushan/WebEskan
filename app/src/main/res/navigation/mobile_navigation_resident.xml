@@ -13,5 +13,20 @@
         android:label="پنل ساکنین"
         tools:layout="@layout/fragment_resident_panel" />
 
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.azarnush.webeskan.ui.home.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/nav_exit_resident"
+        android:name="com.azarnush.webeskan.ExitFragment"
+        tools:layout="@layout/fragment_exit" />
+
+    <fragment
+        android:id="@+id/nav_exit_Account_resident"
+        android:name="com.azarnush.webeskan.ExitFragment"
+        tools:layout="@layout/fragment_exit" />
+
 
 </navigation>

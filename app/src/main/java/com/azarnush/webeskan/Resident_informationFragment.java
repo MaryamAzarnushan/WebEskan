@@ -1,6 +1,7 @@
 package com.azarnush.webeskan;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -152,9 +153,10 @@ public class Resident_informationFragment extends Fragment implements TextWatche
                     Toast.makeText(getContext(), String.valueOf(response), Toast.LENGTH_SHORT).show();
                     if (response == true) {
                         HomeActivity.fragmentManager.popBackStack();
-                        Fragment fragment = new Resident_panelFragment();
-                        HomeActivity.fragmentManager.beginTransaction().replace(R.id.nav_host_fragment, fragment)
-                                .addToBackStack(null).commit();
+//                        Fragment fragment = new Resident_panelFragment();
+//                        HomeActivity.fragmentManager.beginTransaction().replace(R.id.nav_host_fragment, fragment)
+//                                .addToBackStack(null).commit();
+                        startActivity(new Intent(getContext(), Resident_panelActivity.class));
 
                         SharedPreferences.Editor sEdit = shPref.edit();
                         sEdit.putBoolean("is register", true);

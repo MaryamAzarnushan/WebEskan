@@ -7,7 +7,8 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     tools:openDrawer="start"
-    android:layoutDirection="rtl">
+    android:layoutDirection="rtl"
+    android:background="#fff">
 
     <include
         layout="@layout/app_bar_resident_panel"

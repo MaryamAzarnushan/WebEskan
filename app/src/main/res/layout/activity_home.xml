@@ -9,7 +9,8 @@
     android:fitsSystemWindows="true"
     android:layoutDirection="rtl"
     tools:context=".HomeActivity"
-    tools:openDrawer="start">
+    tools:openDrawer="start"
+    android:background="#fff">
 
     <include
         layout="@layout/toolbar"

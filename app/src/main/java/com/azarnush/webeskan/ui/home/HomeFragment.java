@@ -72,6 +72,7 @@ public class HomeFragment extends Fragment {
                 if (homePref.getBoolean("is register", false) && homePref.getBoolean("is login", false)) {
                     Toast.makeText(getContext(), homePref.getBoolean("is register", false) + "", Toast.LENGTH_LONG).show();
                     startActivity(new Intent(getContext(), Resident_panelActivity.class));
+                    getActivity().finish();
 
 
 //                    Fragment fragment = new Resident_panelFragment();
