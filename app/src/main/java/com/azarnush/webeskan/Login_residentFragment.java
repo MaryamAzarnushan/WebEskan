@@ -37,7 +37,7 @@ public class Login_residentFragment extends Fragment {
     String codRegister;
     Context context;
     public static String isRegister;
-    //  SharedPreferences shPref;
+
     String url_Foundation = "http://api.webeskan.com/api/v1/users/";
 
     @Override
@@ -51,8 +51,6 @@ public class Login_residentFragment extends Fragment {
         btn_login_with_number = root.findViewById(R.id.login);
         btn_resend = root.findViewById(R.id.btn_resend);
         txt_Counter = root.findViewById(R.id.txt_Counter);
-        //  shPref = getActivity().getSharedPreferences("my pref", Context.MODE_PRIVATE);
-
 
         sendJSONObjectRequest1();
 
@@ -61,7 +59,6 @@ public class Login_residentFragment extends Fragment {
         btn_login_with_number.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
 
                 String user_cod = (String) pinGroup.getText();
 
@@ -101,11 +98,8 @@ public class Login_residentFragment extends Fragment {
                 }
             }
         });
-
-
         return root;
     }
-
 
     //Seconds build
     public void count() {
@@ -116,10 +110,8 @@ public class Login_residentFragment extends Fragment {
                     counter--;
                 }
             }
-
             public void onFinish() {
                 counter = 30;
-
             }
         }.start();
     }
@@ -128,7 +120,6 @@ public class Login_residentFragment extends Fragment {
 
         RequestQueue queue = Volley.newRequestQueue(getContext());
         String url = url_Foundation + "generate-user-code/" + Get_number_residentFragment.mobile_number;
-
 
         Response.Listener<JSONObject> listener = new Response.Listener<JSONObject>() {
             @Override
@@ -139,7 +130,6 @@ public class Login_residentFragment extends Fragment {
                     codRegister = response.getString("item2");
                     Toast.makeText(getContext(), isRegister, Toast.LENGTH_LONG).show();
                     pinGroup.setText(codRegister);
-
 
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -160,15 +150,12 @@ public class Login_residentFragment extends Fragment {
         request.setRetryPolicy(new DefaultRetryPolicy(5000, 1, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
 
         queue.add(request);
-
-
     }
 
     public void sendJSONObjectRequest2() {
 
         RequestQueue queue = Volley.newRequestQueue(context);
         String url = url_Foundation + "generate-user-code/" + Get_number_residentFragment.mobile_number;
-
 
         Response.Listener<JSONObject> listener = new Response.Listener<JSONObject>() {
             @Override
@@ -204,5 +191,4 @@ public class Login_residentFragment extends Fragment {
         super.onResume();
         HomeActivity.toolbar.setTitle("ورود ساکنین");
     }
-
 }
