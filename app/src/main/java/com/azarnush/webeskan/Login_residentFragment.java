@@ -1,6 +1,7 @@
 package com.azarnush.webeskan;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
@@ -68,13 +69,8 @@ public class Login_residentFragment extends Fragment {
                     if (counter != 0) {
                         if (isRegister == "true") {
                             HomeActivity.fragmentManager.popBackStack();
-                            Fragment fragment = new Resident_panelFragment();
-                            HomeActivity.fragmentManager.beginTransaction().replace(R.id.nav_host_fragment, fragment)
-                                    .addToBackStack(null).commit();
-
-//                            SharedPreferences.Editor sEdit = shPref.edit();
-//                            sEdit.putBoolean("is register", true);
-//                            sEdit.apply();
+                            getActivity().finish();
+                            startActivity(new Intent(getContext(), Resident_panelActivity.class));
 
                             SharedPreferences.Editor sEdit2 = HomeFragment.homePref.edit();
                             sEdit2.putBoolean("is login", true);
@@ -90,11 +86,8 @@ public class Login_residentFragment extends Fragment {
                     } else
                         Toast.makeText(getContext(), "زمان شما تمام شد", Toast.LENGTH_LONG).show();
 
-
                 } else
                     Toast.makeText(getContext(), "کد ارسالی شما اشتباه می باشد", Toast.LENGTH_LONG).show();
-
-
             }
         });
         btn_resend.setOnClickListener(new View.OnClickListener() {
