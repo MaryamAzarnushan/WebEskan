@@ -152,11 +152,7 @@ public class Resident_informationFragment extends Fragment implements TextWatche
                 public void onResponse(Boolean response) {
                     Toast.makeText(getContext(), String.valueOf(response), Toast.LENGTH_SHORT).show();
                     if (response == true) {
-                        HomeActivity.fragmentManager.popBackStack();
-//                        Fragment fragment = new Resident_panelFragment();
-//                        HomeActivity.fragmentManager.beginTransaction().replace(R.id.nav_host_fragment, fragment)
-//                                .addToBackStack(null).commit();
-                        startActivity(new Intent(getContext(), Resident_panelActivity.class));
+                        // HomeActivity.fragmentManager.popBackStack();
 
                         SharedPreferences.Editor sEdit = shPref.edit();
                         sEdit.putBoolean("is register", true);
@@ -165,6 +161,9 @@ public class Resident_informationFragment extends Fragment implements TextWatche
                         SharedPreferences.Editor sEdit2 = HomeFragment.homePref.edit();
                         sEdit2.putBoolean("is login", true);
                         sEdit2.apply();
+
+                        startActivity(new Intent(getContext(), Resident_panelActivity.class));
+                        getActivity().finish();
                     }
                 }
             }, new Response.ErrorListener() {
