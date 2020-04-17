@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">"  وب اسکان"</string>
+    <string name="app_name">"وب اسکان"</string>
     <string name="title_activity_home">صفحه اصلی</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
