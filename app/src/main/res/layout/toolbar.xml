@@ -5,17 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:clickable="true"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:layoutDirection="rtl">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="@color/colorPrimary"
-        android:layoutDirection="rtl"
-        app:popupTheme="@style/AppTheme.PopupOverlay"
-        app:title="@string/app_name"
-        android:gravity="left">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layoutDirection="ltr"
+        android:background="@color/colorPrimary">
 
 
         <ImageView
@@ -27,17 +25,22 @@
             android:foregroundGravity="center"
             android:visibility="invisible"
             app:srcCompat="@drawable/share"
-            tools:ignore="VectorDrawableCompat" />
+            tools:ignore="VectorDrawableCompat"
+            android:layout_marginLeft="10dp" />
 
-        <TextView
-            android:layout_width="120dp"
-            android:layout_height="match_parent"
-            android:text="قوانین و مقررات "
-            android:visibility="invisible">
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:layoutDirection="rtl"
+            app:popupTheme="@style/AppTheme.PopupOverlay"
+            app:title="@string/app_name">
 
-        </TextView>
+        </androidx.appcompat.widget.Toolbar>
 
-    </androidx.appcompat.widget.Toolbar>
+
+    </LinearLayout>
+
 
     <fragment
         android:id="@+id/nav_host_fragment"
