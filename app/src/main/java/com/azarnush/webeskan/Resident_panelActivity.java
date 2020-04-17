@@ -1,5 +1,6 @@
 package com.azarnush.webeskan;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -55,7 +56,7 @@ public class Resident_panelActivity extends AppCompatActivity {
 
         View header = navigationView.getHeaderView(0);
         textView_number = (TextView) header.findViewById(R.id.textView_number);
-        textView_number.setText(Get_number_residentFragment.mobile_number);
+        textView_number.setText(getSharedPreferences("MyPref", Context.MODE_PRIVATE).getString("Mobile", "Mobile"));
 
         navController.addOnDestinationChangedListener(new NavController.OnDestinationChangedListener() {
             @Override

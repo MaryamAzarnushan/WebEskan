@@ -1,6 +1,7 @@
 package com.azarnush.webeskan;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -20,6 +21,7 @@ public class Get_number_residentFragment extends Fragment {
     Integer number_number = 11;
     public Context context;
     public static String mobile_number;
+    SharedPreferences shPref;
 
 
     @Override
@@ -31,6 +33,7 @@ public class Get_number_residentFragment extends Fragment {
         phone = root.findViewById(R.id.phone);
         btn_login = root.findViewById(R.id.btn_login);
         HomeActivity.toolbar.setTitle("ورود ساکنین");
+        shPref = getActivity().getSharedPreferences("MyPref", Context.MODE_PRIVATE);
 
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,6 +51,8 @@ public class Get_number_residentFragment extends Fragment {
 
                     Toast.makeText(getContext(), "شماره موبایل نامعتبر هست", Toast.LENGTH_SHORT).show();
                 } else {
+
+                    shPref.edit().putString("Mobile", mobile_number).apply();
 
                     Fragment fragment = new Login_residentFragment();
 
