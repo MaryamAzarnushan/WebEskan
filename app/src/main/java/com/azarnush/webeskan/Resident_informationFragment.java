@@ -58,6 +58,8 @@ public class Resident_informationFragment extends Fragment implements TextWatche
         final EditText edt_imail = root.findViewById(R.id.edt_imail);
         final Button btn_registration = root.findViewById(R.id.btn_registration);
 
+        edt_name_Residents.addTextChangedListener(this);
+        edt_family_Residents.addTextChangedListener(this);
         edt_Password.addTextChangedListener(this);
         edt_Repeat_Password.addTextChangedListener(this);
         txt_number_phone.setText(Get_number_residentFragment.mobile_number);
@@ -140,6 +142,20 @@ public class Resident_informationFragment extends Fragment implements TextWatche
 
     }
 
+    public static boolean isValidName(final String name) {
+
+        Pattern pattern;
+        Matcher matcher;
+
+       // final String PASSWORD_PATTERN = "^[\u0600-\u06FF]+$";
+        final String Name_PATTERN ="[آ-ی ]+";
+        pattern = Pattern.compile(Name_PATTERN);
+        matcher = pattern.matcher(name);
+
+        return matcher.matches();
+
+    }
+
     private void booleanRequest_user_register() {
         RequestQueue queue = Volley.newRequestQueue(getContext());
 
@@ -197,6 +213,18 @@ public class Resident_informationFragment extends Fragment implements TextWatche
 
     @Override
     public void afterTextChanged(Editable s) {
+
+        String name = edt_name_Residents.getText().toString();
+
+        if(!isValidName(name)){
+            edt_name_Residents.setError("فقط حروف فارسی قابل قبول هست");
+
+        }
+
+        String family = edt_family_Residents.getText().toString();
+        if(!isValidName(family)){
+            edt_family_Residents.setError("فقط حروف فارسی قابل قبول هست");
+        }
 
         String password = edt_Password.getText().toString();
         if (isValidPassword(password)) {

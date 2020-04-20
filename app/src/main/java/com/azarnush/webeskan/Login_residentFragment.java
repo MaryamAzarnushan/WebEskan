@@ -63,7 +63,7 @@ public class Login_residentFragment extends Fragment {
                 String user_cod = (String) pinGroup.getText();
 
                 if (codRegister.equalsIgnoreCase(user_cod)) {
-                    if (counter != 0) {
+                    if (counter >= 0) {
                         if (isRegister == "true") {
                             HomeActivity.fragmentManager.popBackStack();
                             getActivity().finish();

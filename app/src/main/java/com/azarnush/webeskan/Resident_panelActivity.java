@@ -1,6 +1,7 @@
 package com.azarnush.webeskan;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -16,6 +17,7 @@ import com.google.android.material.navigation.NavigationView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.core.view.GravityCompat;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
@@ -94,6 +96,30 @@ public class Resident_panelActivity extends AppCompatActivity {
     public void onBackPressed() {
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
+        }else {
+            AlertDialog.Builder builder = new AlertDialog.Builder(Resident_panelActivity.this);
+            builder.setTitle(R.string.app_name);
+            builder.setIcon(R.drawable.logo);
+            builder.setMessage("آیا قصد خروج از برنامه را دارید؟")
+                    .setCancelable(false)
+                    .setPositiveButton("", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            //Toast.makeText(getApplicationContext(), "finish", Toast.LENGTH_LONG).show();
+                            finish();
+                        }
+                    })
+                    .setNegativeButton("", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            dialog.cancel();
+                        }
+                    });
+            builder.setPositiveButtonIcon(getResources().getDrawable(R.drawable.ic_done))
+                    .setNegativeButtonIcon(getResources().getDrawable(R.drawable.ic_cancel));
+
+            AlertDialog alert = builder.create();
+            alert.show();
+
+
         }
     }
 }
