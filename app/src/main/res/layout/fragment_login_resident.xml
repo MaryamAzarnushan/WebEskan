@@ -71,11 +71,12 @@
                 android:layout_marginLeft="30dp"
                 android:layout_marginTop="30dp"
                 android:text="ارسال مجدد"
-                app:backgroundColor="#2D9385"
+                app:backgroundColor="#575757"
                 app:corners="50dp"
                 app:normalHeight="6dp"
                 app:pressedHeight="2dp"
-                app:shadowColor="#18443E" />
+                app:shadowColor="#2E2B29"
+                android:enabled="false"/>
 
 
             <com.hendraanggrian.appcompat.widget.PinGroup
