@@ -7,7 +7,10 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -19,6 +22,7 @@ public class All_lawsFragment extends Fragment implements View.OnClickListener {
     public static boolean connected;
     View root;
     Context context;
+    RelativeLayout rlt_container_button;
 
     @Nullable
     @Override
@@ -27,6 +31,9 @@ public class All_lawsFragment extends Fragment implements View.OnClickListener {
         context = root.getContext();
         findViews();
         HomeActivity.toolbar.setTitle("قوانین و مقررات");
+
+        Animation animation = AnimationUtils.loadAnimation(getActivity(), R.anim.slide_in_bottom);
+        rlt_container_button.startAnimation(animation);
 
 
         btn_LawOfPossession.setOnClickListener(this);
@@ -69,6 +76,7 @@ public class All_lawsFragment extends Fragment implements View.OnClickListener {
         btn_question_and_answer = root.findViewById(R.id.btn_question_and_answer);
         btn_votes = root.findViewById(R.id.btn_votes);
         btn_Rules_webeskan = root.findViewById(R.id.btn_Rules_webeskan);
+        rlt_container_button = root.findViewById(R.id.rlt_container_button);
 
     }
 
