@@ -3,6 +3,7 @@ package com.azarnush.webeskan;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -63,7 +64,7 @@ public class Login_residentFragment extends Fragment {
                 String user_cod = (String) pinGroup.getText();
 
                 if (codRegister.equalsIgnoreCase(user_cod)) {
-                    if (counter != 0) {
+                    if (counter >= 0) {
                         if (isRegister == "true") {
                             HomeActivity.fragmentManager.popBackStack();
                             getActivity().finish();
@@ -91,10 +92,12 @@ public class Login_residentFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 if (counter == 0) {
+
                     sendJSONObjectRequest2();
+                    btn_resend.setBackgroundColor(Color.parseColor("#575757"));
+                    btn_resend.setEnabled(false);
+
                     counter = 30;
-                } else {
-                    Toast.makeText(getContext(), "هنوز زمان دارید", Toast.LENGTH_LONG).show();
                 }
             }
         });
@@ -109,8 +112,16 @@ public class Login_residentFragment extends Fragment {
                 if (counter != 0) {
                     counter--;
                 }
+                if (counter <=0){
+
+                    btn_resend.setBackgroundColor(Color.parseColor("#2D9385"));
+                    btn_resend.setEnabled(true);
+
+
+                }
             }
             public void onFinish() {
+
                 counter = 30;
             }
         }.start();
@@ -153,6 +164,7 @@ public class Login_residentFragment extends Fragment {
     }
 
     public void sendJSONObjectRequest2() {
+        pinGroup.setText("");
 
         RequestQueue queue = Volley.newRequestQueue(context);
         String url = url_Foundation + "generate-user-code/" + Get_number_residentFragment.mobile_number;

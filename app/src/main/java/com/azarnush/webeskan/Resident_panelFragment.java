@@ -17,7 +17,7 @@ public class Resident_panelFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        HomeActivity.toolbar.setTitle("پنل ساکنین");
+        Resident_panelActivity.toolbar.setTitle("واحدهای شما");
 
         HomeActivity.navigationView.getMenu().findItem(R.id.nav_exit_Account).setVisible(true);
 
@@ -39,6 +39,6 @@ public class Resident_panelFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        HomeActivity.toolbar.setTitle("پنل ساکنین");
+        Resident_panelActivity.toolbar.setTitle("واحدهای شما");
     }
 }
